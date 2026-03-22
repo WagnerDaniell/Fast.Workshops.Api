@@ -1,0 +1,38 @@
+services:
+  api:
+    image: fast-workshops-api
+    container_name: api
+    build:
+      context: .
+      dockerfile: Fast.Workshops.Api/Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      ConnectionStrings__DefaultConnection: Server=${DB_HOST};Port=${DB_PORT};Database=${MYSQL_DATABASE};Uid=${MYSQL_USER};Pwd=${MYSQL_PASSWORD};
+      JWT__SECRETKEY: ${JWT__SECRETKEY}
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - adminer-data:/var/lib/adminer
+
+volumes:
+  mysql-data:
+  adminer-data:

@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Project Path="Fast.Workshops.Api/Fast.Workshops.Api.csproj" />
+  <Project Path="Fast.Workshops.Application/Fast.Workshops.Application.csproj" />
+  <Project Path="Fast.Workshops.Domain/Fast.Workshops.Domain.csproj" />
+  <Project Path="Fast.Workshops.Infrastructure/Fast.Workshops.Infrastructure.csproj" />
+</Solution>

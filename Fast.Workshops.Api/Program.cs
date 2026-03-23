@@ -2,6 +2,7 @@ using Fast.Workshops.Api.Middleware;
 using Fast.Workshops.Application.Services;
 using Fast.Workshops.Application.UseCases.Auth;
 using Fast.Workshops.Application.UseCases.Colaboradores;
+using Fast.Workshops.Application.UseCases.Stats;
 using Fast.Workshops.Application.UseCases.Workshops;
 using Fast.Workshops.Domain.Repositories;
 using Fast.Workshops.Infrastructure.Repositories;
@@ -51,6 +52,10 @@ builder.Services.AddScoped<DeleteColaboradorUseCase>();
 builder.Services.AddScoped<IWorkshopColaboradorRepository, WorkshopColaboradorRepository>();
 builder.Services.AddScoped<AddColaboradorToWorkshopUseCase>();
 builder.Services.AddScoped<RemoveColaboradorFromWorkshopUseCase>();
+
+//stats
+builder.Services.AddScoped<IStatsRepository, StatsRepository>();
+builder.Services.AddScoped<ReadStatsUseCase>();
 
 builder.Services.AddCors(opcoes =>
 {

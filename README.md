@@ -277,6 +277,35 @@ Remove a presença de um colaborador de um workshop.
 
 ---
 
+### Stats — `/api/v1/stats`
+
+> Todos os endpoints requerem autenticação.
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/api/v1/stats/colaboradores-participacao` | Retorna colaboradores com total de workshops participados |
+| GET | `/api/v1/stats/workshops-participacao` | Retorna workshops com total de colaboradores presentes |
+
+#### GET `/api/v1/stats/colaboradores-participacao`
+
+**Response `200`:**
+```json
+[
+  { "id": "uuid", "name": "João Silva", "totalWorkshops": 5 },
+  { "id": "uuid", "name": "Maria Santos", "totalWorkshops": 3 }
+]
+```
+
+#### GET `/api/v1/stats/workshops-participacao`
+
+**Response `200`:**
+```json
+[
+  { "id": "uuid", "name": "Workshop de Clean Code", "totalColaboradores": 8 },
+  { "id": "uuid", "name": "Docker 101", "totalColaboradores": 5 }
+]
+```
+
 ## Códigos de resposta
 
 | Código | Descrição |
